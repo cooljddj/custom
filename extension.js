@@ -1,7 +1,7 @@
 (function () {
 
     // Change this to your GitHub username so you don't have to modify so many things.
-    var fork = "basicBot";
+    var fork = "cooljddj";
 
     // Define our function responsible for extending the bot.
     function extend() {
@@ -90,7 +90,7 @@
       afkRankCheck: "ambassador",
       motdEnabled: false,
       motdInterval: 5,
-      motd: "Temporary Message of the Day",
+      motd: "BRING THE HEAT",
       filterChat: true,
       etaRestriction: false,
       welcome: true,
