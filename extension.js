@@ -88,7 +88,7 @@
       ],
       afkpositionCheck: 15,
       afkRankCheck: "ambassador",
-      motdEnabled: ture,
+      motdEnabled: true,
       motdInterval: 5,
       motd: "BRING THE HEAT",
       filterChat: true,
@@ -112,6 +112,6 @@
     }));
 
     // Start the bot and extend it when it has loaded.
-    $.getScript("https://rawgit.com/basicbot/source/master/basicBot.js", extend);
+    $.getScript("https://rawgit.com/cooljddj/source/master/basicBot.js", extend);
 
 }).call(this);
