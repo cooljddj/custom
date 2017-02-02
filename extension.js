@@ -23,7 +23,118 @@
         for (var i = 0; i < spamWords.length; i++) {
           window.bot.chatUtilities.spam.push(spamWords[i]);
         }
-
+                bot.commands.rcsCommand = {
+            command: 'rcs',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me We use the RCS plugin in this room. Get it here: https://rcs.radiant.dj/");
+                }
+            }
+        };
+        
+                bot.commands.autofapCommand = {
+            command: 'autofap',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("http://i.imgur.com/YBlC5cW.gif");
+                }
+            }
+        };
+        
+        bot.commands.bbcCommand = {
+            command: 'bbc',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'user', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("http://vrf.wpengine.netdna-cdn.com/wp-content/uploads/2014/07/cemani-chickens-01.jpg");
+                }
+            }
+        };
+        
+        bot.commands.clearqueueCommand = {
+            command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
+            rank: 'manager', //Minimum user permission to use the command
+            type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    var locked = bot.getLocked();
+                    if(locked) {
+                        $.ajax({
+                        type: 'PUT', 
+                        url: 'https://plug.dj/_/booth/lock', 
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            isLocked: false,
+                            removeAllDJs: false })
+                        });
+                    }   
+                    $.ajax({
+                    type: 'PUT', 
+                    url: 'https://plug.dj/_/booth/lock', 
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        isLocked: true,
+                        removeAllDJs: true })
+                    });
+                    if(!locked) {
+                        $.ajax({
+                        type: 'PUT', 
+                        url: 'https://plug.dj/_/booth/lock', 
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            isLocked: false,
+                            removeAllDJs: false })
+                        });
+                    }
+                }
+            }
+        };
+        
+                bot.commands.englishCommand = {
+                command: 'english',
+                rank: 'bouncer',
+                type: 'startsWith',
+                functionality: function (chat, cmd) {
+                    if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                    if (!basicBot.commands.executable(this.rank, chat)) return void (0);
+                    else {
+                        if(chat.message.length === cmd.length) return API.sendChat('/me No user specified.');
+                        var name = chat.message.substring(cmd.length + 2);
+                        var user = basicBot.userUtilities.lookupUserName(name);
+                        if(typeof user === 'boolean') return API.sendChat('/me Invalid user specified.');
+                        var lang = basicBot.userUtilities.getUser(user).language;
+                        var ch = '/me @' + name + ' ';
+                        switch(lang){
+                            case 'en': break;
+                            case 'da': ch += 'Vær venlig at tale engelsk.'; break;
+                            case 'de': ch += 'Bitte sprechen Sie Englisch.'; break;
+                            case 'es': ch += 'Por favor, hable Inglés.'; break;
+                            case 'fr': ch += 'Parlez anglais, s\'il vous plaît.'; break;
+                            case 'nl': ch += 'Spreek Engels, alstublieft.'; break;
+                            case 'pl': ch += 'Proszę mówić po angielsku.'; break;
+                            case 'pt': ch += 'Por favor, fale Inglês.'; break;
+                            case 'sk': ch += 'Hovorte po anglicky, prosím.'; break;
+                            case 'cs': ch += 'Mluvte prosím anglicky.'; break;
+                            case 'sr': ch += 'Молим Вас, говорите енглески.'; break;
+                        }
+                        ch += ' English please.';
+                        API.sendChat(ch);
+                    }
+                }
+            },
         // Example code for a bot command:
         bot.commands.baconCommand = {
           command: 'bacon',  // The command to be called. With the standard command literal this would be: !bacon
@@ -46,7 +157,7 @@
     //Change the bots default settings and make sure they are loaded on launch
 
     localStorage.setItem("basicBotsettings", JSON.stringify({
-      botName: "ParaCosmicBot",
+      botName: "KDG",
       language: "english",
       chatLink: "https://rawgit.com/basicBot/source/master/lang/en.json",
       scriptLink: "https://rawgit.com/basicBot/source/master/basicBot.js",
@@ -88,7 +199,7 @@
       ],
       afkpositionCheck: 15,
       afkRankCheck: "ambassador",
-      motdEnabled: true,
+      motdEnabled: false,
       motdInterval: 5,
       motd: "BRING THE HEAT",
       filterChat: true,
@@ -98,9 +209,9 @@
       rulesLink: null,
       themeLink: null,
       fbLink: null,
-      youtubeLink: null,
-      website: null,
-      intervalMessages: [],
+      youtubeLink: "https://www.youtube.com/KickDownGTA",
+      website: "http://KickDownGTA.com/",
+      intervalMessages: "Subscribe to KDG on YT: https://www.youtube.com/KickDownGTA",
       messageInterval: 5,
       songstats: true,
       commandLiteral: "!",
