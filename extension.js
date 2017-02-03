@@ -62,6 +62,19 @@
             }
         };
         
+        bot.commands.startupCommand = {
+            command: 'startup',
+            rank: 'manager',
+            type: 'exact',
+            functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat(subChat(basicBot.chat.online, {botname: basicBot.settings.botName, version: basicBot.version});
+                }
+                                 }
+                                 };
+        
         bot.commands.clearqueueCommand = {
             command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'manager', //Minimum user permission to use the command
