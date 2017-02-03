@@ -134,7 +134,7 @@
                         API.sendChat(ch);
                     }
                 }
-            },
+            };
         // Example code for a bot command:
         bot.commands.baconCommand = {
           command: 'bacon',  // The command to be called. With the standard command literal this would be: !bacon
