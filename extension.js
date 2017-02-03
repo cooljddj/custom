@@ -177,7 +177,7 @@
       roomLock: false, // Requires an extension to re-load the script
       startupCap: 1, // 1-200
       startupVolume: 0, // 0-100
-      startupEmoji: false, // true or false
+      startupEmoji: true, // true or false
       autowoot: true,
       autoskip: false,
       smartSkip: true,
@@ -212,9 +212,9 @@
       ],
       afkpositionCheck: 15,
       afkRankCheck: "ambassador",
-      motdEnabled: false,
+      motdEnabled: true,
       motdInterval: 5,
-      motd: "BRING THE HEAT",
+      motd: "Subscribe to KDG on YT: https://www.youtube.com/KickDownGTA",
       filterChat: true,
       etaRestriction: false,
       welcome: true,
