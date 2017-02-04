@@ -34,7 +34,7 @@
                     API.sendChat("/me We use the RCS plugin in this room. Get it here: https://rcs.radiant.dj/");
                 }
             }
-        };
+        },
         
             autofapCommand: {
             command: 'autofap',  //The command to be called. With the standard command literal this would be: !bacon
@@ -47,7 +47,7 @@
                     API.sendChat("http://i.imgur.com/YBlC5cW.gif");
                 }
             }
-        };
+        },
         
         bbcCommand: {
             command: 'bbc',  //The command to be called. With the standard command literal this would be: !bacon
@@ -60,7 +60,7 @@
                     API.sendChat("http://vrf.wpengine.netdna-cdn.com/wp-content/uploads/2014/07/cemani-chickens-01.jpg");
                 }
             }
-        };
+        },
         
         startupCommand: {
             command: 'startup',
@@ -73,7 +73,7 @@
                     API.sendChat(subChat(basicBot.chat.online, {botname: basicBot.settings.botName, version: basicBot.version});
                 }
                                  }
-                                 };
+                                 },
         
         clearqueueCommand: {
             command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
@@ -114,7 +114,7 @@
                     }
                 }
             }
-        };
+        },
         
                 /*englishCommand: {
                 command: 'english',
@@ -160,7 +160,7 @@
               API.sendChat("/me Bacon!!!");
             }
           }
-        };
+        },
 
         // Load the chat package again to account for any changes
         bot.loadChat();
