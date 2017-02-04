@@ -23,7 +23,7 @@
         for (var i = 0; i < spamWords.length; i++) {
           window.bot.chatUtilities.spam.push(spamWords[i]);
         }
-                bot.commands.rcsCommand = {
+            rcsCommand: {
             command: 'rcs',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -36,7 +36,7 @@
             }
         };
         
-                bot.commands.autofapCommand = {
+            autofapCommand: {
             command: 'autofap',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -49,7 +49,7 @@
             }
         };
         
-        bot.commands.bbcCommand = {
+        bbcCommand: {
             command: 'bbc',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -62,7 +62,7 @@
             }
         };
         
-        bot.commands.startupCommand = {
+        startupCommand: {
             command: 'startup',
             rank: 'manager',
             type: 'exact',
@@ -75,7 +75,7 @@
                                  }
                                  };
         
-        /*bot.commands.clearqueueCommand = {
+        clearqueueCommand: {
             command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'manager', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -114,9 +114,9 @@
                     }
                 }
             }
-        };*/
+        };
         
-                bot.commands.englishCommand = {
+                /*englishCommand: {
                 command: 'english',
                 rank: 'bouncer',
                 type: 'startsWith',
@@ -147,9 +147,9 @@
                         API.sendChat(ch);
                     }
                 }
-            };
+            };*/
         // Example code for a bot command:
-        bot.commands.baconCommand = {
+        baconCommand: {
           command: 'bacon',  // The command to be called. With the standard command literal this would be: !bacon
           rank: 'user', // Minimum user permission to use the command
           type: 'exact', // Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
