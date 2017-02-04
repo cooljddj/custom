@@ -23,6 +23,21 @@
         for (var i = 0; i < spamWords.length; i++) {
           window.bot.chatUtilities.spam.push(spamWords[i]);
         }
+        /* Teamspeak command */
+            bot.commands.tsCommand = {
+                command: 'teamspeak',
+                rank: 'user',
+                type: 'exact',
+                functionality: function (chat, cmd) {
+                if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
+                if (!bot.commands.executable(this.rank, chat)) return void (0);
+                else {
+                    API.sendChat("/me Not a member? Join the teamspeak to learn how today! ts3.kickdowngta.com:9778");
+                }
+            }
+        },
+        
+        /* RCS Command */
             bot.commands.rcsCommand = {
             command: 'rcs',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
