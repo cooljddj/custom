@@ -23,7 +23,7 @@
         for (var i = 0; i < spamWords.length; i++) {
           window.bot.chatUtilities.spam.push(spamWords[i]);
         }
-            rcsCommand: {
+            bot.commands.rcsCommand = {
             command: 'rcs',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -36,7 +36,7 @@
             }
         },
         
-            autofapCommand: {
+            bot.commands.autofapCommand = {
             command: 'autofap',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -49,7 +49,7 @@
             }
         },
         
-        bbcCommand: {
+        bot.commands.bbcCommand = {
             command: 'bbc',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'user', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -62,7 +62,7 @@
             }
         },
         
-        startupCommand: {
+        bot.commands.startupCommand = {
             command: 'startup',
             rank: 'manager',
             type: 'exact',
@@ -70,12 +70,12 @@
                 if (this.type === 'exact' && chat.message.length !== cmd.length) return void (0);
                 if (!bot.commands.executable(this.rank, chat)) return void (0);
                 else {
-                    API.sendChat(subChat(basicBot.chat.online, {botname: basicBot.settings.botName, version: basicBot.version});
+                    API.sendChat(subChat(basicBot.chat.online, {botname: basicBot.settings.botName, version: basicBot.version}));
                 }
                                  }
-                                 },
+                                 };
         
-        clearqueueCommand: {
+        bot.commands.clearqueueCommand = {
             command: 'clearqueue',  //The command to be called. With the standard command literal this would be: !bacon
             rank: 'manager', //Minimum user permission to use the command
             type: 'exact', //Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -114,7 +114,7 @@
                     }
                 }
             }
-        },
+        };
         
                 /*englishCommand: {
                 command: 'english',
@@ -149,7 +149,7 @@
                 }
             };*/
         // Example code for a bot command:
-        baconCommand: {
+        bot.commands.baconCommand = {
           command: 'bacon',  // The command to be called. With the standard command literal this would be: !bacon
           rank: 'user', // Minimum user permission to use the command
           type: 'exact', // Specify if it can accept variables or not (if so, these have to be handled yourself through the chat.message
@@ -160,7 +160,7 @@
               API.sendChat("/me Bacon!!!");
             }
           }
-        },
+        };
 
         // Load the chat package again to account for any changes
         bot.loadChat();
